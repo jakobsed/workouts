@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Workout Preview</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/header.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="css/pages/workout-preview.css">
+    <!-- Reusing create workout styles for picker -->
+    <link rel="stylesheet" href="css/pages/create-workout-exercises.css">
+</head>
+
+<body>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="clock">20:49</div>
+        <div class="status-right">
+            <div class="signal-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span style="font-size: 12px;">5G</span>
+            <div class="battery">89</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="icon-btn" aria-label="Back">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </a>
+        <div class="header-title" id="workout-title">Workout</div>
+        <button class="icon-btn delete-header-btn" id="delete-btn" aria-label="Delete">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Content -->
+    <main class="preview-content">
+
+        <!-- Exercises Section -->
+        <section class="exercises-section" style="padding-top: 16px;">
+            <div class="exercises-header">
+                <div class="exercises-info">
+                    <h2 class="exercises-count"><span id="exercise-count">0</span> Exercises</h2>
+                    <p class="exercises-time">Estimated workout time is <span id="workout-time">0</span> min</p>
+                </div>
+                <button class="add-btn" id="add-exercise-btn" aria-label="Add Exercise">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Exercise List -->
+            <div class="exercise-list" id="exercise-list">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Button -->
+    <div class="bottom-action">
+        <button id="start-btn" class="btn-primary">Start Workout</button>
+    </div>
+
+    <!-- Exercise Picker Modal -->
+    <div class="modal-backdrop" id="exercisePickerBackdrop"></div>
+    <div class="exercise-picker" id="exercisePicker">
+        <div class="picker-header">
+            <button class="picker-close-btn" id="picker-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <button class="picker-add-btn" disabled id="picker-add">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+            <div class="picker-actions">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Muscle Filter Pills -->
+        <div class="muscle-filter-scroll">
+            <div class="muscle-filters" id="muscle-filters">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+
+        <!-- Exercise Picker List -->
+        <div class="picker-list" id="picker-list">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- Search Bar -->
+        <div class="picker-search-container">
+            <div class="picker-search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="picker-search-input" placeholder="Search for an exercise">
+            </div>
+            <button class="picker-done-btn" id="picker-done">Done</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/core/database.js"></script>
+    <script src="js/pages/workout-preview.js"></script>
+    <script>
+        // Clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+
+</html>

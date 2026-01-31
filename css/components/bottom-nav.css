@@ -1,0 +1,70 @@
+/* Bottom Navigation Bar */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    background: #FFFFFF;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 8px;
+    padding-bottom: 34px;
+    /* Safe Area für iPhone X+ */
+    z-index: 50;
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    color: #8E8E93;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    min-width: 64px;
+    background: none;
+    border: none;
+}
+
+.tab-item.active {
+    color: #000;
+}
+
+.tab-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* FAB (Floating Action Button) in der Mitte */
+.tab-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    min-width: 64px;
+}
+
+.fab {
+    width: 44px;
+    height: 44px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.fab:active {
+    transform: scale(0.95);
+}

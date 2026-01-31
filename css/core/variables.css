@@ -1,0 +1,14 @@
+:root {
+    /* iOS System Farben */
+    --ios-bg: #F2F2F7;
+    --ios-card: #FFFFFF;
+    --ios-text: #000000;
+    --ios-text-secondary: #8E8E93;
+    --ios-border: #E5E5EA;
+    --ios-blue: #007AFF;
+    --ios-border-radius: 12px;
+
+    /* Spacing */
+    --safe-top: 44px;
+    --safe-bottom: 34px;
+}

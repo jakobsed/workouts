@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exercises</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/header.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="css/pages/exercises.css">
+</head>
+
+<body>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="clock">19:30</div>
+        <div class="status-right">
+            <div class="signal-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span style="font-size: 12px;">5G</span>
+            <div class="battery">99</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="settings.html" class="icon-btn" aria-label="Back">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </a>
+        <div class="header-title">Exercises</div>
+        <a href="create-exercise.html" class="icon-btn" aria-label="Add Exercise">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+        </a>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <button class="tab-button active" data-filter="all">All</button>
+        <button class="tab-button" data-filter="archive">Archive</button>
+        <div class="tab-indicator"></div>
+    </div>
+
+    <!-- Content -->
+    <main class="exercises-content">
+        <h2 class="section-heading" id="list-title">Available</h2>
+
+        <!-- Exercise List -->
+        <div id="exercise-list" class="exercise-list">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <div class="empty-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#C7C7CC" stroke-width="1.5">
+                    <path
+                        d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+                </svg>
+            </div>
+            <p class="empty-title">No exercises yet</p>
+            <p class="empty-subtitle">Tap the + button to create your first exercise</p>
+        </div>
+
+        <!-- No Results State -->
+        <div id="no-results-state" class="empty-state" style="display: none;">
+            <p class="empty-title">No results found</p>
+            <p class="empty-subtitle">Try a different search term</p>
+        </div>
+    </main>
+
+    <!-- Search Bar (Fixed Bottom) -->
+    <div class="search-container">
+        <div class="search-bar">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search for an exercise">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/core/database.js"></script>
+    <script src="js/pages/exercises.js"></script>
+    <script>
+        // Clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>More</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/bottom-nav.css">
+    <link rel="stylesheet" href="css/components/ios-list.css">
+
+    <!-- Page Specific -->
+    <link rel="stylesheet" href="css/pages/settings.css">
+</head>
+
+<body>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="clock">00:59</div>
+        <div class="status-right">
+            <div class="signal-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span style="font-size: 12px;">5G</span>
+            <div class="battery">99</div>
+        </div>
+    </div>
+
+    <!-- Header ohne Icons (lisd nur Titel) -->
+    <div class="header" style="justify-content: center;">
+        <div class="header-title">More</div>
+    </div>
+
+    <!-- HAUPT CONTENT (Grauer Bereich) -->
+    <main class="settings-container">
+
+        <!-- Profil Section (Weiße Karte oben) -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="avatar">JA</div>
+                <div class="profile-info">
+                    <h3>jakobsedlar</h3>
+                    <p>Member Since 18. Januar 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Section -->
+        <section class="settings-group">
+            <h2 class="group-title">General</h2>
+            <div class="ios-list">
+                <div class="list-item">
+                    <div class="item-icon">
+                        <!-- Account Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Account</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Settings Section -->
+        <section class="settings-group">
+            <h2 class="group-title">Feature Settings</h2>
+            <div class="ios-list">
+                <div class="list-item">
+                    <div class="item-icon">
+                        <!-- Workout Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Workout</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+
+                <a href="exercises.html" class="list-item">
+                    <div class="item-icon">
+                        <!-- Exercises Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Exercises</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Data Management Section -->
+        <section class="settings-group">
+            <h2 class="group-title">Data Management</h2>
+            <div class="ios-list">
+                <div class="list-item" id="btn-export-data" onclick="handleExportData()">
+                    <div class="item-icon">
+                        <!-- Export Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Data Export</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-icon">
+                        <!-- Visibility Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Data Visibility</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+
+                <div class="list-item list-item-danger" id="btn-delete-data" onclick="handleDeleteData()">
+                    <div class="item-icon item-icon-danger">
+                        <!-- Delete Icon -->
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                        </svg>
+                    </div>
+                    <div class="item-title">Account & Data Deletion</div>
+                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="tab-bar">
+        <a href="#" class="tab-item" onclick="return false;" style="opacity: 0.5;">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="index.html" class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+            </svg>
+            <span>Workout</span>
+        </a>
+
+        <div class="tab-center">
+            <button class="fab" onclick="alert('Add')" aria-label="Add">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+
+        <a href="#" class="tab-item" onclick="return false;" style="opacity: 0.5;">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                </path>
+                <path
+                    d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                </path>
+            </svg>
+            <span>Levels</span>
+        </a>
+
+        <a href="settings.html" class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+            </svg>
+            <span>More</span>
+        </a>
+    </nav>
+
+    <script src="js/core/database.js"></script>
+    <script src="js/pages/settings.js"></script>
+    <script>
+        // Uhrzeit
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateTime, 60000);
+        updateTime();
+    </script>
+</body>
+
+</html>

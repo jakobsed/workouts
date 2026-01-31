@@ -1,0 +1,69 @@
+.calendar-container {
+    background: #FFFFFF;
+    padding: 8px 16px 16px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+
+.calendar-strip {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.calendar-strip::-webkit-scrollbar {
+    display: none;
+}
+
+.day-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 48px;
+    height: 72px;
+    border-radius: 24px;
+    border: 1px solid #C7C7CC;
+    background: #FFFFFF;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.day-pill:active {
+    background: #F2F2F7;
+}
+
+.day-pill.active {
+    border-color: #000;
+}
+
+.day-pill.today::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.day-letter {
+    font-size: 13px;
+    color: #8E8E93;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.day-number {
+    font-size: 17px;
+    font-weight: 400;
+    color: #000;
+}
+
+.day-pill.today .day-number {
+    font-weight: 600;
+}

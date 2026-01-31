@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Active Workout</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="css/pages/active-workout.css">
+</head>
+
+<body>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="clock">20:49</div>
+        <div class="status-right">
+            <div class="signal-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span style="font-size: 12px;">5G</span>
+            <div class="battery">89</div>
+        </div>
+    </div>
+
+    <!-- Workout Header -->
+    <header class="workout-header">
+        <button class="menu-btn" id="menu-btn" aria-label="Menu">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="timer-display">
+            <span id="workout-timer">0:00:00</span>
+        </div>
+        <div class="rest-timer-display">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" fill="none" />
+            </svg>
+            <span id="rest-timer">0:00</span>
+        </div>
+    </header>
+
+    <!-- Exercise Carousel -->
+    <div class="exercise-carousel" id="exercise-carousel">
+        <!-- Populated via JS -->
+    </div>
+
+    <!-- Current Exercise -->
+    <main class="workout-content">
+        <div class="exercise-info">
+            <h1 class="exercise-name" id="exercise-name">Exercise Name</h1>
+            <p class="exercise-set-info" id="set-info">Set 1 of 2</p>
+        </div>
+
+        <!-- Set Table -->
+        <div class="set-table">
+            <div class="set-table-header">
+                <div class="col-set">Set</div>
+                <div class="col-weight">kg</div>
+                <div class="col-reps">Reps</div>
+                <div class="col-check"></div>
+            </div>
+            <div class="set-table-body" id="set-table-body">
+                <!-- Populated via JS -->
+            </div>
+            <button class="add-set-btn" id="add-set-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Workout Options Modal -->
+    <div class="modal-backdrop" id="optionsBackdrop"></div>
+    <div class="options-sheet" id="optionsSheet">
+        <div class="options-header">
+            <button class="options-close" id="options-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <span class="options-title">Workout Options</span>
+        </div>
+        <div class="options-list">
+            <button class="option-item" id="option-finish">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <polyline points="9 15 11 17 15 13" />
+                </svg>
+                <span>Finish workout</span>
+            </button>
+            <button class="option-item danger" id="option-discard">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+                <span>Discard workout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/pages/active-workout.js"></script>
+    <script>
+        // Clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+
+</html>

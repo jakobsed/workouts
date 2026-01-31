@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Workout Complete</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="css/pages/workout-complete.css">
+</head>
+
+<body>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div id="clock">20:50</div>
+        <div class="status-right">
+            <div class="signal-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span style="font-size: 12px;">5G</span>
+            <div class="battery">89</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="complete-header">
+        <button class="icon-btn" onclick="goBack()" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="header-title">Workout Complete</div>
+        <button class="icon-btn" aria-label="More">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Content -->
+    <main class="complete-content">
+
+        <!-- Muscle Illustration -->
+        <div class="muscle-illustration" id="muscle-illustration">
+            <!-- SVG body illustrations populated via JS -->
+        </div>
+
+        <!-- Achievement Cards -->
+        <div class="achievement-cards" id="achievement-cards">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- Workout Details Section -->
+        <section class="details-section">
+            <h2 class="details-title">Workout Details</h2>
+            <div class="details-grid" id="details-grid">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Button -->
+    <div class="bottom-action">
+        <button class="btn-primary" onclick="goBack()">Done</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/pages/workout-complete.js"></script>
+    <script>
+        // Clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
