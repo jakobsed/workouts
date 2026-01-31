@@ -203,9 +203,7 @@ function renderPickerList(searchTerm = '', muscleFilter = 'all') {
         const isAdded = selectedExercises.some(s => s.id === ex.id);
         return `
             <div class="picker-exercise-item" data-id="${ex.id}">
-                <div class="picker-exercise-icon">
-                    ${getMuscleGroupIcon(ex.muscleGroup)}
-                </div>
+
                 <div class="picker-exercise-info">
                     <p class="picker-exercise-name">${escapeHtml(ex.name)}</p>
                     <p class="picker-exercise-muscles">${getMuscleGroupLabel(ex.muscleGroup)}</p>
