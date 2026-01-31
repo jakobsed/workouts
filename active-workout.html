@@ -113,16 +113,7 @@
 
     <!-- Scripts -->
     <script src="js/pages/active-workout.js"></script>
-    <script>
-        // Clock
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('clock').textContent =
-                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-    </script>
+
     <script src="js/core/pwa.js"></script>
 </body>
 
