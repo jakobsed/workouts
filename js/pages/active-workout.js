@@ -329,11 +329,3 @@ function saveWorkoutToHistory() {
 // HELPERS
 // ============================================
 
-function getExerciseIcon(muscleGroup) {
-    const icons = {
-        'chest': 'C', 'back': 'B', 'biceps': 'Bi', 'triceps': 'Tr', 'shoulders': 'Sh',
-        'abs': 'Ab', 'traps': 'Tp', 'forearms': 'Fa', 'quads': 'Qu', 'glutes': 'Gl',
-        'hamstrings': 'Hm', 'calves': 'Ca', 'adductors': 'Ad'
-    };
-    return icons[muscleGroup] || muscleGroup?.charAt(0).toUpperCase() || '?';
-}

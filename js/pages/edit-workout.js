@@ -368,12 +368,6 @@ function initSaveButton() {
 // HELPERS
 // ============================================
 
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
 // Get exercises from database.js or localStorage
 function getExercises() {
     // Try to use database.js function if available
@@ -382,44 +376,5 @@ function getExercises() {
     }
     // Fallback to localStorage
     return JSON.parse(localStorage.getItem('fitapp_exercises') || '[]');
-}
-
-function getMuscleGroupLabel(muscleGroup) {
-    const labels = {
-        'chest': 'Chest',
-        'back': 'Back',
-        'biceps': 'Biceps',
-        'triceps': 'Triceps',
-        'shoulders': 'Shoulders',
-        'abs': 'Abs',
-        'traps': 'Traps',
-        'forearms': 'Forearms',
-        'quads': 'Quads',
-        'glutes': 'Glutes',
-        'hamstrings': 'Hamstrings',
-        'calves': 'Calves',
-        'adductors': 'Adductors'
-    };
-    return labels[muscleGroup] || muscleGroup || 'Other';
-}
-
-function getMuscleGroupIcon(muscleGroup) {
-    // Simple letter icons for each muscle group
-    const icons = {
-        'chest': 'C',
-        'back': 'B',
-        'biceps': 'Bi',
-        'triceps': 'Tr',
-        'shoulders': 'Sh',
-        'abs': 'Ab',
-        'traps': 'Tp',
-        'forearms': 'Fa',
-        'quads': 'Qu',
-        'glutes': 'Gl',
-        'hamstrings': 'Hm',
-        'calves': 'Ca',
-        'adductors': 'Ad'
-    };
-    return icons[muscleGroup] || muscleGroup?.charAt(0).toUpperCase() || '?';
 }
 

@@ -164,8 +164,3 @@ function formatWeight(weight) {
     return new Intl.NumberFormat('en-US').format(weight);
 }
 
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}

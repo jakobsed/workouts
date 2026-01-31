@@ -352,39 +352,8 @@ function getExercises() {
     return JSON.parse(localStorage.getItem('fitapp_exercises') || '[]');
 }
 
-function getMuscleLabel(muscleGroup) {
-    const labels = {
-        'chest': 'Chest', 'back': 'Back', 'biceps': 'Biceps', 'triceps': 'Triceps',
-        'shoulders': 'Shoulders', 'abs': 'Abs', 'traps': 'Traps', 'forearms': 'Forearms',
-        'quads': 'Quads', 'glutes': 'Glutes', 'hamstrings': 'Hamstrings', 'calves': 'Calves', 'adductors': 'Adductors'
-    };
-    return labels[muscleGroup] || muscleGroup || 'Other';
-}
-
-function getMuscleGroupIcon(muscleGroup) {
-    const icons = {
-        'chest': 'C', 'back': 'B', 'biceps': 'Bi', 'triceps': 'Tr', 'shoulders': 'Sh',
-        'abs': 'Ab', 'traps': 'Tp', 'forearms': 'Fa', 'quads': 'Qu', 'glutes': 'Gl',
-        'hamstrings': 'Hm', 'calves': 'Ca', 'adductors': 'Ad'
-    };
-    return icons[muscleGroup] || muscleGroup?.charAt(0).toUpperCase() || '?';
-}
-
-function getExerciseIcon(muscleGroup) {
-    const icons = {
-        'chest': '🏋️', 'back': '🏋️', 'shoulders': '💪', 'biceps': '💪', 'triceps': '💪',
-        'abs': '🏃', 'quads': '🦵', 'glutes': '🦵', 'hamstrings': '🦵', 'calves': '🦵'
-    };
-    return icons[muscleGroup] || '🏋️';
-}
-
 function getMusclesForExercise(exercise) {
     const mainMuscle = getMuscleLabel(exercise.muscleGroup);
     return [mainMuscle];
 }
 
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}

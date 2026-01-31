@@ -3,10 +3,6 @@
  * Handles workout library display with swipe actions
  */
 
-function haptic(ms) {
-    if (navigator.vibrate) navigator.vibrate(ms);
-}
-
 // ============================================
 // WORKOUT LIBRARY
 // ============================================
@@ -196,27 +192,3 @@ function toggleLibrary() {
 // HELPERS
 // ============================================
 
-function getMuscleLabel(muscleGroup) {
-    const labels = {
-        'chest': 'Chest',
-        'back': 'Back',
-        'biceps': 'Biceps',
-        'triceps': 'Triceps',
-        'shoulders': 'Shoulders',
-        'abs': 'Abs',
-        'traps': 'Traps',
-        'forearms': 'Forearms',
-        'quads': 'Quads',
-        'glutes': 'Glutes',
-        'hamstrings': 'Hamstrings',
-        'calves': 'Calves',
-        'adductors': 'Adductors'
-    };
-    return labels[muscleGroup] || muscleGroup;
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
