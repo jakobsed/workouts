@@ -217,9 +217,7 @@ function renderExercises() {
     listContainer.innerHTML = selectedExercises.map(ex => `
         <div class="workout-exercise-item" data-id="${ex.id}">
             <div class="exercise-item-header">
-                <div class="exercise-item-icon">
-                    ${getMuscleGroupIcon(ex.muscleGroup)}
-                </div>
+
                 <div class="exercise-item-content">
                     <h3 class="exercise-item-name">${escapeHtml(ex.name)}</h3>
                     <p class="exercise-item-subtitle">No target set</p>
