@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/components/header.css">
     <link rel="stylesheet" href="css/components/bottom-nav.css">
     <link rel="stylesheet" href="css/components/ios-list.css">
+    <link rel="stylesheet" href="css/components/add-sheet.css">
 
     <!-- Page Specific -->
     <link rel="stylesheet" href="css/pages/settings.css">
@@ -27,10 +28,7 @@
 </head>
 
 <body>
-            <span style="font-size: 12px;">5G</span>
-            <div class="battery">99</div>
-        </div>
-    </div>
+
 
     <!-- Header ohne Icons (lisd nur Titel) -->
     <div class="header" style="justify-content: center;">
@@ -153,6 +151,63 @@
 
     </main>
 
+
+    <!-- SHORTCUTS SHEET MODAL -->
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeAddSheet()"></div>
+
+    <div class="add-sheet" id="addSheet">
+        <div class="sheet-header">
+            <button class="close-btn" onclick="closeAddSheet()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="sheet-title">Shortcuts</div>
+            <button class="settings-btn" aria-label="Settings">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                    <circle cx="8" cy="6" r="2" fill="currentColor"></circle>
+                    <circle cx="16" cy="12" r="2" fill="currentColor"></circle>
+                    <circle cx="10" cy="18" r="2" fill="currentColor"></circle>
+                </svg>
+            </button>
+        </div>
+
+        <div class="shortcuts-grid">
+            <button class="shortcut-item" onclick="selectOption('empty-workout')">
+                <div class="shortcut-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+                <span class="shortcut-label">Empty Workout</span>
+            </button>
+
+            <button class="shortcut-item" onclick="selectOption('new-program')">
+                <div class="shortcut-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                </div>
+                <span class="shortcut-label">New Program</span>
+            </button>
+
+            <button class="shortcut-item" onclick="selectOption('new-workout')">
+                <div class="shortcut-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+                    </svg>
+                </div>
+                <span class="shortcut-label">New Workout</span>
+            </button>
+        </div>
+    </div>
+
+
     <!-- Bottom Navigation -->
     <nav class="tab-bar">
         <a href="#" class="tab-item" onclick="return false;" style="opacity: 0.5;">
@@ -174,7 +229,7 @@
         </a>
 
         <div class="tab-center">
-            <button class="fab" onclick="alert('Add')" aria-label="Add">
+            <button class="fab" onclick="openAddSheet()" aria-label="Add">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -205,6 +260,7 @@
 
     <script src="js/core/database.js"></script>
     <script src="js/pages/settings.js"></script>
+    <script src="js/components/add-sheet.js"></script>
     <script src="js/core/pwa.js"></script>
 </body>
 

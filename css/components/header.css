@@ -24,6 +24,7 @@
     cursor: pointer;
     border-radius: 12px;
     transition: opacity 0.2s;
+    color: #007AFF;
 }
 
 .icon-btn:active {
