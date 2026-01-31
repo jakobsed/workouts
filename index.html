@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Workout</title>
 
     <!-- Core -->
@@ -20,20 +20,18 @@
 
     <!-- Page -->
     <link rel="stylesheet" href="css/pages/workout.css">
+
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 </head>
 
 <body>
 
     <!-- STATUS BAR -->
-    <div class="status-bar">
-        <div id="clock">01:07</div>
-        <div class="status-right">
-            <div class="signal-bars">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+    
             <span style="font-size: 12px;">5G</span>
             <div class="battery">99</div>
         </div>
@@ -243,15 +241,7 @@
     <script src="js/pages/workout.js"></script>
 
     <!-- Nur Uhrzeit bleibt inline (oder auch auslagern falls gewünscht) -->
-    <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('clock').textContent =
-                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-        }
-        setInterval(updateTime, 60000);
-        updateTime();
-    </script>
+    <script src="js/core/pwa.js"></script>
 </body>
 
 </html>
