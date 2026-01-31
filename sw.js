@@ -44,7 +44,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('[Service Worker] Caching all assignments');
+                console.log('[Service Worker] Caching all assets');
                 return cache.addAll(ASSETS_TO_CACHE);
             })
     );
