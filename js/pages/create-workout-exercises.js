@@ -44,12 +44,10 @@ function initAddButton() {
 
 function initPicker() {
     const backdrop = document.getElementById('exercisePickerBackdrop');
-    const closeBtn = document.getElementById('picker-close');
     const doneBtn = document.getElementById('picker-done');
     const searchInput = document.getElementById('picker-search-input');
 
     backdrop.addEventListener('click', closePicker);
-    closeBtn.addEventListener('click', closePicker);
     doneBtn.addEventListener('click', closePicker);
 
     searchInput.addEventListener('input', (e) => {
