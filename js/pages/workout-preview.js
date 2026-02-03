@@ -70,10 +70,10 @@ function renderExerciseList() {
         ];
 
         return `
-            <div class="exercise-item" data-id="${ex.id}">
+            <div class="exercise-item" data-id="${ex.id}" style="touch-action: pan-y;">
                 <div class="exercise-item-top">
                     <!-- Drag Handle -->
-                    <div class="drag-handle" style="padding: 0 12px 0 0; cursor: grab; color: #C7C7CC; display: flex; align-items: center; align-self: stretch;">
+                    <div class="drag-handle" style="padding: 0 12px 0 0; cursor: grab; color: #C7C7CC; display: flex; align-items: center; align-self: stretch; touch-action: none;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="6" x2="21" y2="6"></line>
