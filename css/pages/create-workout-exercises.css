@@ -252,8 +252,9 @@
     left: 0;
     right: 0;
     padding: 16px;
-    padding-bottom: calc(16px + var(--safe-bottom));
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
     background: var(--ios-card);
+    z-index: 100;
 }
 
 .btn-primary {
@@ -464,12 +465,13 @@
     left: 0;
     right: 0;
     padding: 12px 16px;
-    padding-bottom: calc(12px + var(--safe-bottom));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 20px));
     background: var(--ios-card);
     border-top: 1px solid var(--ios-border);
     display: flex;
     gap: 12px;
     align-items: center;
+    z-index: 102;
 }
 
 .picker-search {
