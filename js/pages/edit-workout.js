@@ -272,7 +272,13 @@ function renderExercises() {
     listContainer.innerHTML = selectedExercises.map(ex => `
         <div class="workout-exercise-item" data-id="${ex.id}">
             <div class="exercise-item-header">
-
+                <div class="drag-handle" style="padding: 0 12px 0 0; cursor: grab; color: #C7C7CC; display: flex; align-items: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
                 <div class="exercise-item-content">
                     <h3 class="exercise-item-name">${escapeHtml(ex.name)}</h3>
                     <p class="exercise-item-subtitle">No target set</p>
@@ -289,6 +295,27 @@ function renderExercises() {
             </div>
         </div>
     `).join('');
+
+    // Init Sortable
+    if (window.Sortable) {
+        if (window.sortableInstance) window.sortableInstance.destroy(); // Cleanup old instance
+        window.sortableInstance = new Sortable(listContainer, {
+            animation: 150,
+            handle: '.drag-handle',
+            onEnd: function (evt) {
+                const itemEl = evt.item;
+                const newIndex = evt.newIndex;
+                const oldIndex = evt.oldIndex;
+                
+                // Move item in array
+                const item = selectedExercises.splice(oldIndex, 1)[0];
+                selectedExercises.splice(newIndex, 0, item);
+                
+                // Haptic feedback
+                if (navigator.vibrate) navigator.vibrate(10);
+            }
+        });
+    }
 }
 
 function renderMusclesSummary() {
