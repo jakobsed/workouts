@@ -7,13 +7,21 @@
     -webkit-font-smoothing: antialiased;
 }
 
+html {
+    background-color: var(--ios-bg);
+    height: 100%;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--ios-bg);
     color: var(--ios-text);
     height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport height */
     overflow: hidden;
     position: relative;
+    overscroll-behavior-y: none;
 }
 
 /* Content Bereich (Grau) */
