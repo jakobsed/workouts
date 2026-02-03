@@ -72,6 +72,15 @@ function renderExerciseList() {
         return `
             <div class="exercise-item" data-id="${ex.id}">
                 <div class="exercise-item-top">
+                    <!-- Drag Handle -->
+                    <div class="drag-handle" style="padding: 0 12px 0 0; cursor: grab; color: #C7C7CC; display: flex; align-items: center; align-self: stretch;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </div>
+
                     <div class="exercise-item-image">
                         ${getExerciseIcon(ex.muscleGroup)}
                     </div>
@@ -103,6 +112,30 @@ function renderExerciseList() {
             </div>
         `;
     }).join('');
+
+    // Init Sortable
+    if (window.Sortable) {
+        if (window.sortableInstance) window.sortableInstance.destroy(); // Cleanup old instance
+        window.sortableInstance = new Sortable(container, {
+            animation: 150,
+            handle: '.drag-handle',
+            onEnd: function (evt) {
+                const itemEl = evt.item;
+                const newIndex = evt.newIndex;
+                const oldIndex = evt.oldIndex;
+
+                // Move item in array
+                const item = workout.exercises.splice(oldIndex, 1)[0];
+                workout.exercises.splice(newIndex, 0, item);
+
+                // Save changes
+                saveWorkout();
+
+                // Haptic feedback
+                if (navigator.vibrate) navigator.vibrate(10);
+            }
+        });
+    }
 }
 
 // ============================================
