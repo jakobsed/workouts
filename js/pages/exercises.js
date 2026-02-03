@@ -49,6 +49,9 @@ function updateTitle() {
         case 'all':
             title.textContent = 'Available';
             break;
+        case 'custom':
+            title.textContent = 'Custom';
+            break;
         case 'archive':
             title.textContent = 'Archived';
             break;
@@ -125,6 +128,8 @@ function filterExercises(exercises, filter) {
     switch (filter) {
         case 'all':
             return exercises.filter(ex => !ex.archived);
+        case 'custom':
+            return exercises.filter(ex => !ex.archived && ex.isCustom);
         case 'archive':
             return exercises.filter(ex => ex.archived);
         default:

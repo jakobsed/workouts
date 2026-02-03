@@ -7,6 +7,25 @@ const DB_KEYS = {
     EXERCISES: 'fitapp_exercises'
 };
 
+// Default Exercises
+const DEFAULT_EXERCISES = [
+    { id: 'ex_bench_press', name: 'Bench Press', muscleGroup: 'chest', isCustom: false },
+    { id: 'ex_push_up', name: 'Push Up', muscleGroup: 'chest', isCustom: false },
+    { id: 'ex_dips', name: 'Dips', muscleGroup: 'chest', isCustom: false },
+    { id: 'ex_pull_up', name: 'Pull Up', muscleGroup: 'back', isCustom: false },
+    { id: 'ex_barbell_row', name: 'Barbell Row', muscleGroup: 'back', isCustom: false },
+    { id: 'ex_deadlift', name: 'Deadlift', muscleGroup: 'back', isCustom: false },
+    { id: 'ex_squat', name: 'Squat', muscleGroup: 'legs', isCustom: false },
+    { id: 'ex_leg_press', name: 'Leg Press', muscleGroup: 'legs', isCustom: false },
+    { id: 'ex_lunge', name: 'Lunge', muscleGroup: 'legs', isCustom: false },
+    { id: 'ex_oh_press', name: 'Overhead Press', muscleGroup: 'shoulders', isCustom: false },
+    { id: 'ex_lat_raise', name: 'Lateral Raise', muscleGroup: 'shoulders', isCustom: false },
+    { id: 'ex_bicep_curl', name: 'Bicep Curl', muscleGroup: 'biceps', isCustom: false },
+    { id: 'ex_tricep_ext', name: 'Tricep Extension', muscleGroup: 'triceps', isCustom: false },
+    { id: 'ex_crunch', name: 'Crunch', muscleGroup: 'abs', isCustom: false },
+    { id: 'ex_plank', name: 'Plank', muscleGroup: 'abs', isCustom: false }
+];
+
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
@@ -27,8 +46,16 @@ function generateId() {
  * @returns {Array} Array of exercise objects
  */
 function getExercises() {
-    const data = localStorage.getItem(DB_KEYS.EXERCISES);
-    let exercises = data ? JSON.parse(data) : [];
+    let data = localStorage.getItem(DB_KEYS.EXERCISES);
+    let exercises = [];
+
+    if (!data) {
+        // Seed default exercises if DB is empty
+        exercises = DEFAULT_EXERCISES;
+        localStorage.setItem(DB_KEYS.EXERCISES, JSON.stringify(exercises));
+    } else {
+        exercises = JSON.parse(data);
+    }
 
     // Sort by Muscle Group (A-Z) then Name (A-Z)
     return exercises.sort((a, b) => {
@@ -72,6 +99,7 @@ function saveExercise(exercise) {
         name: exercise.name,
         muscleGroup: exercise.muscleGroup || 'chest',
         archived: false,
+        isCustom: true,
         createdAt: new Date().toISOString()
     };
 
