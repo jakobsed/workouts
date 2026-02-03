@@ -28,7 +28,25 @@ function generateId() {
  */
 function getExercises() {
     const data = localStorage.getItem(DB_KEYS.EXERCISES);
-    return data ? JSON.parse(data) : [];
+    let exercises = data ? JSON.parse(data) : [];
+
+    // Sort by Muscle Group (A-Z) then Name (A-Z)
+    return exercises.sort((a, b) => {
+        const muscleA = (a.muscleGroup || '').toLowerCase();
+        const muscleB = (b.muscleGroup || '').toLowerCase();
+
+        if (muscleA < muscleB) return -1;
+        if (muscleA > muscleB) return 1;
+
+        // Muscle groups are same, sort by name
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+
+        return 0;
+    });
 }
 
 /**
