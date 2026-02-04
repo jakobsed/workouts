@@ -101,30 +101,25 @@
 
 /* Size Variants - INCREASED SIZES */
 .small .stat-circle {
-    width: 90px;
-    /* Increased from 80 */
-    height: 90px;
-    border-width: 3px;
+    width: 88px;
+    height: 88px;
+    border-width: 4px;
     border-style: solid;
 }
 
 .small .stat-value {
     font-size: 28px;
-    /* Increased from 24 */
 }
 
 .large .stat-circle {
-    width: 140px;
-    /* Increased from 120 */
-    height: 140px;
-    border-width: 5px;
-    /* Thicker border for large */
+    width: 160px;
+    height: 160px;
+    border-width: 6px;
     border-style: solid;
 }
 
 .large .stat-value {
-    font-size: 42px;
-    /* Increased from 32 */
+    font-size: 56px;
 }
 
 /* Colors */
