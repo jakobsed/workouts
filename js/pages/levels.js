@@ -4,19 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const levelsData = {
     upperBody: [
-        { id: 'front-delts', name: 'Front Delts', sets: 2, maxSets: 4 }, // maxSets estimated for bar width
-        { id: 'triceps', name: 'Triceps', sets: 1, maxSets: 4 },
-        { id: 'side-delts', name: 'Side Delts', sets: 1, maxSets: 4 },
-        { id: 'upper-traps', name: 'Upper Traps', sets: 1, maxSets: 4 },
-        { id: 'serratus', name: 'Serratus', sets: 1, maxSets: 4 },
-        { id: 'chest', name: 'Chest', sets: 0, maxSets: 4 }
+        { id: 'chest', name: 'Chest', sets: 0, maxSets: 4 },
+        { id: 'back', name: 'Back', sets: 0, maxSets: 4 },
+        { id: 'shoulders', name: 'Shoulders', sets: 0, maxSets: 4 },
+        { id: 'biceps', name: 'Biceps', sets: 0, maxSets: 4 },
+        { id: 'triceps', name: 'Triceps', sets: 0, maxSets: 4 },
+        { id: 'traps', name: 'Traps', sets: 0, maxSets: 4 },
+        { id: 'forearms', name: 'Forearms', sets: 0, maxSets: 4 },
+        { id: 'abs', name: 'Abs', sets: 0, maxSets: 4 }
     ],
     lowerBody: [
         { id: 'quads', name: 'Quads', sets: 0, maxSets: 4 },
         { id: 'glutes', name: 'Glutes', sets: 0, maxSets: 4 },
         { id: 'hamstrings', name: 'Hamstrings', sets: 0, maxSets: 4 },
         { id: 'calves', name: 'Calves', sets: 0, maxSets: 4 },
-        { id: 'abductors', name: 'Abductors', sets: 0, maxSets: 4 },
         { id: 'adductors', name: 'Adductors', sets: 0, maxSets: 4 }
     ]
 };
@@ -28,7 +29,7 @@ function renderLevels() {
     if (upperContainer) {
         upperContainer.innerHTML = generateLevelItems(levelsData.upperBody);
     }
-    
+
     if (lowerContainer) {
         lowerContainer.innerHTML = generateLevelItems(levelsData.lowerBody);
     }
@@ -38,12 +39,11 @@ function generateLevelItems(items) {
     return items.map((item, index) => {
         const isLast = index === items.length - 1;
         const width = item.sets > 0 ? (item.sets * 30) : 0; // 30px per set based on visual estimation
-        
+
         return `
             <div class="level-item">
                 <div class="muscle-image-container">
-                    <div class="muscle-placeholder"></div>
-                    <!-- TODO: Replace placeholder with <img src="assets/muscles/${item.id}.png" ...> -->
+                    <!-- Image will be added here later if available -->
                 </div>
                 <div class="level-info">
                     <div class="level-name">${item.name}</div>

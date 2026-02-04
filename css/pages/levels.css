@@ -2,17 +2,43 @@
 
 .content {
     padding: 16px;
-    padding-top: calc(var(--safe-top) + 60px);
-    /* Adjust for header */
+    padding-top: calc(var(--safe-top) + 20px);
+    /* Reduced top padding as requested */
 }
+
+/* Header Adjustments for "Set Levels" */
+.header {
+    justify-content: center;
+    /* Center the title */
+    padding-bottom: 8px;
+    /* Standard padding */
+    /* Check if header.css handles padding-top, usually it does. */
+}
+
+.header-title {
+    /* If header.css titles are left-aligned by default, this helps centering */
+    text-align: center;
+    width: 100%;
+}
+
 
 .section-title {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 12px;
-    margin-top: 12px;
+    margin-bottom: 8px;
+    /* Slightly tighter */
+    margin-top: 24px;
+    /* More space before section */
     color: var(--ios-text);
+    padding-left: 4px;
+    /* Slight alignment adjustment */
 }
+
+/* First section title should have less margin top */
+.section-title:first-of-type {
+    margin-top: 10px;
+}
+
 
 .level-card {
     background-color: var(--ios-card);
@@ -38,7 +64,7 @@
     /* Indent divider */
 }
 
-/* Muscle Image */
+/* Muscle Image Container */
 .muscle-image-container {
     width: 60px;
     height: 60px;
@@ -47,16 +73,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Placeholder background removed */
 }
 
-.muscle-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: #E5E5EA;
-    /* Light gray placeholder */
-    border-radius: 8px;
-    opacity: 0.5;
-}
 
 /* Level Info */
 .level-info {
