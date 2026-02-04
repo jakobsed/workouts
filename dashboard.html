@@ -47,7 +47,7 @@
                 <!-- Muscles -->
                 <div class="stat-circle-wrapper small">
                     <div class="stat-circle blue-border">
-                        <span class="stat-value">9</span>
+                        <span class="stat-value" id="stat-muscles">0</span>
                     </div>
                     <span class="stat-label">Muscles</span>
                 </div>
@@ -55,7 +55,7 @@
                 <!-- Sets (Center, Large) -->
                 <div class="stat-circle-wrapper large">
                     <div class="stat-circle orange-border">
-                        <span class="stat-value">2</span>
+                        <span class="stat-value" id="stat-sets">0</span>
                     </div>
                     <span class="stat-label">Sets</span>
                 </div>
@@ -63,7 +63,7 @@
                 <!-- Exercises -->
                 <div class="stat-circle-wrapper small">
                     <div class="stat-circle teal-border">
-                        <span class="stat-value">7</span>
+                        <span class="stat-value" id="stat-exercises">0</span>
                     </div>
                     <span class="stat-label">Exercises</span>
                 </div>
@@ -89,18 +89,11 @@
                         <div class="card-title">Workouts</div>
                         <div class="card-subtitle">Last 7 Workouts</div>
                     </div>
-                    <div class="chart-area bar-chart">
-                        <!-- CSS/SVG Bar Chart Mock -->
-                        <div class="bar" style="height: 20%;"></div>
-                        <div class="bar" style="height: 0%;"></div>
-                        <div class="bar" style="height: 40%;"></div>
-                        <div class="bar" style="height: 10%;"></div>
-                        <div class="bar" style="height: 0%;"></div>
-                        <div class="bar" style="height: 60%;"></div>
-                        <div class="bar active-bar" style="height: 80%;"></div>
+                    <div class="chart-area bar-chart" id="workouts-chart">
+                        <!-- Populated via JS -->
                     </div>
                     <div class="card-footer">
-                        <span class="footer-value">2 <span class="unit">sets</span></span>
+                        <span class="footer-value" id="workouts-metric">0 <span class="unit">sets</span></span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <polyline points="9 18 15 12 9 6"></polyline>
@@ -108,30 +101,17 @@
                     </div>
                 </div>
 
-                <!-- Weight Trend Card -->
+                <!-- Volume Trend Card -->
                 <div class="insight-card">
                     <div class="card-header">
-                        <div class="card-title">Weight Trend</div>
-                        <div class="card-subtitle">Last 7 Days</div>
+                        <div class="card-title">Volume Trend</div>
+                        <div class="card-subtitle">Last 7 Workouts</div>
                     </div>
-                    <div class="chart-area line-chart">
-                        <!-- SVG Line Chart Mock -->
-                        <svg viewBox="0 0 100 40" preserveAspectRatio="none" width="100%" height="100%">
-                            <!-- Line -->
-                            <path d="M5 20 L20 20 L35 20 L50 20 L65 20 L80 20 L95 20" stroke="#8E8E93" stroke-width="2"
-                                fill="none" stroke-opacity="0.5" />
-                            <!-- Points -->
-                            <circle cx="5" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="20" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="35" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="50" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="65" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="80" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                            <circle cx="95" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
-                        </svg>
+                    <div class="chart-area line-chart" id="volume-chart">
+                        <!-- Populated via JS -->
                     </div>
                     <div class="card-footer">
-                        <span class="footer-value">80.0 <span class="unit">kg</span></span>
+                        <span class="footer-value" id="volume-metric">0 <span class="unit">kg</span></span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <polyline points="9 18 15 12 9 6"></polyline>
