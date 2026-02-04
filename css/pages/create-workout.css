@@ -2,24 +2,25 @@
    CREATE WORKOUT PAGE STYLES
    ============================================ */
 
-/* Body Layout for Fixed Footer Behavior */
+/* Body Layout */
 body {
-    display: flex;
-    flex-direction: column;
-    /* base.css handle height: 100dvh */
+    display: block;
+    height: 100dvh;
 }
 
-/* Header stays at top (flex default) */
+/* Header stays at top */
 
 .form-content {
-    flex: 1;
+    /* Fixed footer spacing */
+    height: calc(100% - 60px);
+    /* Adjust based on header */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 24px 16px;
+    padding-bottom: 120px;
+    /* Space for fixed footer */
     background: var(--ios-card);
 }
-
-/* ... existing styles ... */
 
 .form-heading {
     font-size: 26px;
@@ -62,21 +63,17 @@ body {
     color: var(--ios-text-secondary);
 }
 
-/* Bottom Action - FLEX ITEM implementation */
+/* Bottom Action - FIXED implementation matching Tab Bar */
 .bottom-action {
-    position: relative;
-    /* Not fixed anymore */
-    bottom: auto;
-    left: auto;
-    right: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    flex-shrink: 0;
-    /* DONT SHRINK */
     padding: 16px;
     padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
     background: var(--ios-card);
     border-top: 1px solid var(--ios-border);
-    /* Separator maybe? */
     z-index: 100;
 }
 
