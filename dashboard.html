@@ -33,95 +33,102 @@
     <!-- MAIN CONTENT -->
     <main class="content dashboard-content">
 
-        <!-- Header Section -->
-        <div class="dashboard-header-section">
-            <div class="current-date" id="current-date">DATA LOADING...</div>
-            <h1 class="dashboard-title">DASHBOARD</h1>
-        </div>
-
-        <!-- Weekly Workouts Section -->
-        <div class="section-container">
-            <h2 class="section-title">Weekly Workouts</h2>
-
-            <div class="stats-circles">
-                <!-- Muscles -->
-                <div class="stat-circle-wrapper small">
-                    <div class="stat-circle blue-border">
-                        <span class="stat-value" id="stat-muscles">0</span>
-                    </div>
-                    <span class="stat-label">Muscles</span>
-                </div>
-
-                <!-- Sets (Center, Large) -->
-                <div class="stat-circle-wrapper large">
-                    <div class="stat-circle orange-border">
-                        <span class="stat-value" id="stat-sets">0</span>
-                    </div>
-                    <span class="stat-label">Sets</span>
-                </div>
-
-                <!-- Exercises -->
-                <div class="stat-circle-wrapper small">
-                    <div class="stat-circle teal-border">
-                        <span class="stat-value" id="stat-exercises">0</span>
-                    </div>
-                    <span class="stat-label">Exercises</span>
-                </div>
+        <!-- TOP SECTION (WHITE BG) -->
+        <div class="dashboard-top-section">
+            <!-- Header Section -->
+            <div class="dashboard-header-section">
+                <div class="current-date" id="current-date">DATA LOADING...</div>
+                <h1 class="dashboard-title">DASHBOARD</h1>
             </div>
 
-            <!-- Toggle -->
-            <div class="toggle-container">
-                <div class="toggle-bg">
-                    <div class="toggle-option" onclick="toggleFilter('active-program')">Active Program</div>
-                    <div class="toggle-option active-option" onclick="toggleFilter('all-workouts')">All Workouts</div>
-                </div>
-            </div>
-        </div>
+            <!-- Weekly Workouts Section -->
+            <div class="section-container">
+                <h2 class="section-title">Weekly Workouts</h2>
 
-        <!-- Insights Section -->
-        <div class="section-container insights-section">
-            <h2 class="section-title">Insights & Analytics</h2>
+                <div class="stats-circles">
+                    <!-- Muscles -->
+                    <div class="stat-circle-wrapper small">
+                        <div class="stat-circle blue-border">
+                            <span class="stat-value" id="stat-muscles">0</span>
+                        </div>
+                        <span class="stat-label">Muscles</span>
+                    </div>
 
-            <div class="insights-scroll">
-                <!-- Workouts Card -->
-                <div class="insight-card">
-                    <div class="card-header">
-                        <div class="card-title">Workouts</div>
-                        <div class="card-subtitle">Last 7 Workouts</div>
+                    <!-- Sets (Center, Large) -->
+                    <div class="stat-circle-wrapper large">
+                        <div class="stat-circle orange-border">
+                            <span class="stat-value" id="stat-sets">0</span>
+                        </div>
+                        <span class="stat-label">Sets</span>
                     </div>
-                    <div class="chart-area bar-chart" id="workouts-chart">
-                        <!-- Populated via JS -->
-                    </div>
-                    <div class="card-footer">
-                        <span class="footer-value" id="workouts-metric">0 <span class="unit">sets</span></span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+
+                    <!-- Exercises -->
+                    <div class="stat-circle-wrapper small">
+                        <div class="stat-circle teal-border">
+                            <span class="stat-value" id="stat-exercises">0</span>
+                        </div>
+                        <span class="stat-label">Exercises</span>
                     </div>
                 </div>
 
-                <!-- Volume Trend Card -->
-                <div class="insight-card">
-                    <div class="card-header">
-                        <div class="card-title">Volume Trend</div>
-                        <div class="card-subtitle">Last 7 Workouts</div>
-                    </div>
-                    <div class="chart-area line-chart" id="volume-chart">
-                        <!-- Populated via JS -->
-                    </div>
-                    <div class="card-footer">
-                        <span class="footer-value" id="volume-metric">0 <span class="unit">kg</span></span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+                <!-- Toggle -->
+                <div class="toggle-container">
+                    <div class="toggle-bg">
+                        <div class="toggle-option" onclick="toggleFilter('active-program')">Active Program</div>
+                        <div class="toggle-option active-option" onclick="toggleFilter('all-workouts')">All Workouts
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div style="height: 100px;"></div> <!-- Spacer -->
+        <!-- BOTTOM SECTION (GRAY BG) -->
+        <div class="dashboard-bottom-section">
+            <!-- Insights Section -->
+            <div class="section-container insights-section">
+                <h2 class="section-title">Insights & Analytics</h2>
+
+                <div class="insights-scroll">
+                    <!-- Workouts Card -->
+                    <div class="insight-card">
+                        <div class="card-header">
+                            <div class="card-title">Workouts</div>
+                            <div class="card-subtitle">Last 7 Workouts</div>
+                        </div>
+                        <div class="chart-area bar-chart" id="workouts-chart">
+                            <!-- Populated via JS -->
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-value" id="workouts-metric">0 <span class="unit">sets</span></span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Volume Trend Card -->
+                    <div class="insight-card">
+                        <div class="card-header">
+                            <div class="card-title">Volume Trend</div>
+                            <div class="card-subtitle">Last 7 Workouts</div>
+                        </div>
+                        <div class="chart-area line-chart" id="volume-chart">
+                            <!-- Populated via JS -->
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-value" id="volume-metric">0 <span class="unit">kg</span></span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 100px; background-color: var(--ios-bg);"></div> <!-- Spacer (in gray area) -->
     </main>
 
     <!-- BOTTOM NAV -->
@@ -145,7 +152,6 @@
         </a>
 
         <div class="tab-center">
-            <!-- Reuse existing add sheet logic -->
             <button class="fab" onclick="openAddSheet()" aria-label="Add">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -175,7 +181,7 @@
         </a>
     </nav>
 
-    <!-- ADD SHEET (Copied from other pages) -->
+    <!-- ADD SHEET -->
     <div class="modal-backdrop" id="modalBackdrop" onclick="closeAddSheet()"></div>
     <div class="add-sheet" id="addSheet">
         <div class="sheet-handle-bar">

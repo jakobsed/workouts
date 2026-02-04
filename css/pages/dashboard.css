@@ -1,9 +1,27 @@
 /* Dashboard Page Specific Styles */
 
 .dashboard-content {
+    /* Padding removed from main to allow full width backgrounds */
+    padding: 0;
+    padding-top: 0;
+    background-color: var(--ios-bg);
+}
+
+/* TOP SECTION (WHITE BG) */
+.dashboard-top-section {
+    background-color: #FFFFFF;
     padding: 24px 20px;
     padding-top: calc(var(--safe-top) + 24px);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    /* Optional rounded overlap */
+    margin-bottom: 24px;
+}
+
+/* BOTTOM SECTION (GRAY BG) */
+.dashboard-bottom-section {
     background-color: var(--ios-bg);
+    padding: 0 20px;
 }
 
 /* Header Section */
@@ -27,14 +45,16 @@
     color: var(--ios-text);
     letter-spacing: -1px;
     /* Tighter letter spacing for display font look */
-    /* Font style like "DASHBOARD" in screenshot (Extended/Wide?) - Using system font for now */
     text-transform: uppercase;
 }
 
 /* Section Container */
 .section-container {
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    /* Handled by parent padding or manual spacing manually */
 }
+
+/* Weekly Workouts Section inside top wrapper doesn't need margin bottom as wrapper handles it */
 
 .section-title {
     font-size: 18px;
@@ -49,7 +69,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding: 0 10px;
+    padding: 0 4px;
 }
 
 .stat-circle-wrapper {
@@ -70,7 +90,6 @@
 .stat-value {
     font-weight: 600;
     color: var(--ios-text);
-    /* Font size depends on circle size */
 }
 
 .stat-label {
@@ -79,27 +98,32 @@
     font-weight: 500;
 }
 
-/* Size Variants */
+/* Size Variants - INCREASED SIZES */
 .small .stat-circle {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    /* Increased from 80 */
+    height: 90px;
     border-width: 3px;
     border-style: solid;
 }
 
 .small .stat-value {
-    font-size: 24px;
+    font-size: 28px;
+    /* Increased from 24 */
 }
 
 .large .stat-circle {
-    width: 120px;
-    height: 120px;
-    border-width: 4px;
+    width: 140px;
+    /* Increased from 120 */
+    height: 140px;
+    border-width: 5px;
+    /* Thicker border for large */
     border-style: solid;
 }
 
 .large .stat-value {
-    font-size: 32px;
+    font-size: 42px;
+    /* Increased from 32 */
 }
 
 /* Colors */
@@ -123,7 +147,7 @@
 .toggle-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .toggle-bg {
@@ -137,7 +161,7 @@
 }
 
 .toggle-option {
-    padding: 8px 16px;
+    padding: 8px 20px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
@@ -154,6 +178,10 @@
 
 
 /* Insights Section */
+.insights-section {
+    padding-top: 10px;
+}
+
 .insights-scroll {
     display: flex;
     gap: 16px;
