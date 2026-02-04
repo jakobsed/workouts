@@ -2,10 +2,18 @@
    CREATE EXERCISE PAGE STYLES
    ============================================ */
 
+/* Body Layout for Fixed Footer Behavior */
+body {
+    display: flex;
+    flex-direction: column;
+    /* base.css handle height: 100dvh */
+}
+
 /* Progress Bar */
 .progress-bar {
     height: 3px;
     background: var(--ios-border);
+    flex-shrink: 0;
 }
 
 .progress-fill {
@@ -19,10 +27,14 @@
 .form-content {
     flex: 1;
     padding: 24px 16px;
-    padding-bottom: 120px;
+    padding-bottom: 24px;
+    /* Footer is now flex item */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: var(--ios-card);
 }
+
+/* ... existing styles ... */
 
 .form-heading {
     font-size: 26px;
@@ -139,12 +151,13 @@
     pointer-events: none;
 }
 
-/* Bottom Action */
+/* Bottom Action - FLEX ITEM implementation */
 .bottom-action {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    flex-shrink: 0;
     padding: 16px;
     padding-bottom: calc(16px + var(--safe-bottom));
     background: var(--ios-card);

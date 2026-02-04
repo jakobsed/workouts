@@ -2,18 +2,29 @@
    CREATE WORKOUT - EXERCISES PAGE STYLES
    ============================================ */
 
+/* Body Layout for Fixed Footer Behavior */
+body {
+    display: flex;
+    flex-direction: column;
+    /* base.css handle height: 100dvh */
+}
+
 /* Header Line */
 .header-line {
     height: 3px;
     background: #34C759;
     margin: 0 16px;
+    flex-shrink: 0;
 }
 
 /* Name Edit Section */
 .name-edit-section {
     padding: 16px;
     background: var(--ios-card);
+    flex-shrink: 0;
 }
+
+/* ... existing styles ... */
 
 .name-edit-section .form-label {
     display: block;
@@ -44,11 +55,14 @@
 .workout-content {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 100px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 24px;
+    /* Reduced from 100px as footer is now flex item */
     background: var(--ios-card);
 }
 
-/* Target Muscles Section */
+/* ... existing styles ... */
+
 .target-muscles-section {
     padding: 20px 16px;
     border-bottom: 1px solid var(--ios-border);
@@ -245,15 +259,17 @@
     color: var(--ios-text);
 }
 
-/* Bottom Action */
+/* Bottom Action - FLEX ITEM implementation */
 .bottom-action {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    flex-shrink: 0;
     padding: 16px;
     padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
     background: var(--ios-card);
+    border-top: 1px solid var(--ios-border);
     z-index: 100;
 }
 
