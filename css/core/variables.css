@@ -9,6 +9,6 @@
     --ios-border-radius: 12px;
 
     /* Spacing */
-    --safe-top: 44px;
-    --safe-bottom: 34px;
+    --safe-top: env(safe-area-inset-top, 20px);
+    --safe-bottom: env(safe-area-inset-bottom, 20px);
 }

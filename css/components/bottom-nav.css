@@ -11,7 +11,7 @@
     justify-content: space-around;
     align-items: flex-start;
     padding-top: 8px;
-    padding-bottom: 34px;
+    padding-bottom: calc(12px + var(--safe-bottom));
     /* Safe Area für iPhone X+ */
     z-index: 50;
 }
