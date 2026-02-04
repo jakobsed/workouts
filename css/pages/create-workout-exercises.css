@@ -2,11 +2,10 @@
    CREATE WORKOUT - EXERCISES PAGE STYLES
    ============================================ */
 
-/* Body Layout for Fixed Footer Behavior */
+/* Body Layout */
 body {
-    display: flex;
-    flex-direction: column;
-    /* base.css handle height: 100dvh */
+    display: block;
+    height: 100dvh;
 }
 
 /* Header Line */
@@ -14,14 +13,12 @@ body {
     height: 3px;
     background: #34C759;
     margin: 0 16px;
-    flex-shrink: 0;
 }
 
 /* Name Edit Section */
 .name-edit-section {
     padding: 16px;
     background: var(--ios-card);
-    flex-shrink: 0;
 }
 
 /* ... existing styles ... */
@@ -53,11 +50,15 @@ body {
 
 /* Content */
 .workout-content {
-    flex: 1;
+    /* Height handling for scroll */
+    height: calc(100% - 130px);
+    /* Approx header height deduction, or just use 100% with padding? */
+    /* Simpler: just use flex column for content area if possible, OR just normal flow with padding bottom */
+    /* Let's try normal flow but body is block */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 24px;
-    /* Reduced from 100px as footer is now flex item */
+    padding-bottom: 120px;
+    /* Space for fixed footer */
     background: var(--ios-card);
 }
 
@@ -259,13 +260,13 @@ body {
     color: var(--ios-text);
 }
 
-/* Bottom Action - FLEX ITEM implementation */
+/* Bottom Action - FIXED implementation */
 .bottom-action {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
     padding: 16px;
     padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
     background: var(--ios-card);
