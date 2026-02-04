@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view-transition" content="same-origin">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Levels</title>
+
+    <!-- Core -->
+    <link rel="stylesheet" href="css/core/variables.css">
+    <link rel="stylesheet" href="css/core/reset.css">
+    <link rel="stylesheet" href="css/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/bottom-nav.css">
+    <link rel="stylesheet" href="css/components/add-sheet.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="css/pages/levels.css">
+
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-title">Set Levels</div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- Upper Body Section -->
+        <h2 class="section-title">Upper Body Levels</h2>
+        <div class="level-card" id="upper-body-list">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- Lower Body Section -->
+        <h2 class="section-title">Lower Body Levels</h2>
+        <div class="level-card" id="lower-body-list">
+            <!-- Populated via JS -->
+        </div>
+
+        <div style="height: 100px;"></div> <!-- Spacer -->
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="tab-bar">
+        <a href="dashboard.html" class="tab-item" style="opacity: 0.5;">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="index.html" class="tab-item" style="opacity: 0.5;">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+            </svg>
+            <span>Workout</span>
+        </a>
+
+        <div class="tab-center">
+            <button class="fab" onclick="openAddSheet()" aria-label="Add">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+
+        <a href="levels.html" class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                </path>
+                <path
+                    d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                </path>
+            </svg>
+            <span>Levels</span>
+        </a>
+
+        <a href="settings.html" class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+            </svg>
+            <span>More</span>
+        </a>
+    </nav>
+
+    <!-- ADD SHEET -->
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeAddSheet()"></div>
+    <div class="add-sheet" id="addSheet">
+        <div class="sheet-handle-bar">
+            <div class="sheet-handle"></div>
+        </div>
+        <div class="sheet-header">
+            <button class="close-btn" onclick="closeAddSheet()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="sheet-title">Add</div>
+            <div style="width: 32px;"></div>
+        </div>
+        <div class="sheet-list">
+            <button class="sheet-item" onclick="selectOption('empty-workout')">
+                <div class="sheet-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span class="sheet-item-label">Empty Workout</span>
+                <svg class="sheet-item-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <button class="sheet-item" onclick="selectOption('new-program')">
+                <div class="sheet-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M4 12h16M16 6l4 6-4 6" />
+                    </svg>
+                </div>
+                <span class="sheet-item-label">New Program</span>
+                <svg class="sheet-item-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <button class="sheet-item" onclick="selectOption('new-workout')">
+                <div class="sheet-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
+                    </svg>
+                </div>
+                <span class="sheet-item-label">New Workout</span>
+                <svg class="sheet-item-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="js/core/utils.js"></script>
+    <script src="js/components/add-sheet.js"></script>
+    <script src="js/pages/levels.js"></script>
+    <script src="js/core/pwa.js"></script>
+
+</body>
+
+</html>
