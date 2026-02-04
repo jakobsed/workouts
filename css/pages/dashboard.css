@@ -1,0 +1,253 @@
+/* Dashboard Page Specific Styles */
+
+.dashboard-content {
+    padding: 24px 20px;
+    padding-top: calc(var(--safe-top) + 24px);
+    background-color: var(--ios-bg);
+}
+
+/* Header Section */
+.dashboard-header-section {
+    margin-bottom: 30px;
+}
+
+.current-date {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ios-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.dashboard-title {
+    font-size: 34px;
+    font-weight: 800;
+    /* Extra bold */
+    color: var(--ios-text);
+    letter-spacing: -1px;
+    /* Tighter letter spacing for display font look */
+    /* Font style like "DASHBOARD" in screenshot (Extended/Wide?) - Using system font for now */
+    text-transform: uppercase;
+}
+
+/* Section Container */
+.section-container {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ios-text);
+    margin-bottom: 24px;
+}
+
+/* Stats Circles */
+.stats-circles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.stat-circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-circle {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: var(--ios-text);
+    /* Font size depends on circle size */
+}
+
+.stat-label {
+    font-size: 15px;
+    color: var(--ios-text);
+    font-weight: 500;
+}
+
+/* Size Variants */
+.small .stat-circle {
+    width: 80px;
+    height: 80px;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.small .stat-value {
+    font-size: 24px;
+}
+
+.large .stat-circle {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.large .stat-value {
+    font-size: 32px;
+}
+
+/* Colors */
+.blue-border {
+    border-color: #4A90E2;
+    /* Blue */
+}
+
+.orange-border {
+    border-color: #FF8A65;
+    /* Orange/Salmon */
+}
+
+.teal-border {
+    border-color: #00BCD4;
+    /* Cyan/Teal */
+}
+
+
+/* Toggle */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.toggle-bg {
+    background-color: #EFEEF4;
+    /* Light gray bg for toggle track */
+    border-radius: 30px;
+    padding: 2px;
+    display: flex;
+    position: relative;
+    /* width: fit-content; */
+}
+
+.toggle-option {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8E8E93;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.active-option {
+    background-color: #000000;
+    color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Insights Section */
+.insights-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    /* Space for scrollbar or shadow */
+    margin-right: -20px;
+    /* Bleed to right edge */
+    padding-right: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+}
+
+.insights-scroll::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar generic */
+}
+
+.insight-card {
+    background-color: var(--ios-card);
+    border-radius: 16px;
+    padding: 16px;
+    min-width: 160px;
+    width: 45%;
+    /* almost half width */
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-subtitle {
+    font-size: 12px;
+    color: var(--ios-text-secondary);
+}
+
+.chart-area {
+    margin-top: auto;
+    margin-bottom: 12px;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    /* Placeholder for charts */
+}
+
+.bar-chart {
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.bar {
+    width: 6px;
+    background-color: #E5E5EA;
+    /* Inactive bars */
+    border-radius: 3px;
+}
+
+.active-bar {
+    background-color: #FF8A65;
+    /* Active bar color matches Set circle? or similar */
+}
+
+.line-chart {
+    position: relative;
+    width: 100%;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--ios-border);
+    padding-top: 8px;
+}
+
+.footer-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.unit {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ios-text-secondary);
+}

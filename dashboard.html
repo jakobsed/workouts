@@ -6,7 +6,7 @@
     <meta name="view-transition" content="same-origin">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Workout</title>
+    <title>Dashboard</title>
 
     <!-- Core -->
     <link rel="stylesheet" href="css/core/variables.css">
@@ -16,12 +16,10 @@
     <!-- Components -->
     <link rel="stylesheet" href="css/components/header.css">
     <link rel="stylesheet" href="css/components/bottom-nav.css">
-    <link rel="stylesheet" href="css/components/ios-list.css">
-    <link rel="stylesheet" href="css/components/calendar.css">
-    <link rel="stylesheet" href="css/components/add-sheet.css"> <!-- WICHTIG! -->
+    <link rel="stylesheet" href="css/components/add-sheet.css">
 
     <!-- Page -->
-    <link rel="stylesheet" href="css/pages/workout.css">
+    <link rel="stylesheet" href="css/pages/dashboard.css">
 
     <!-- PWA -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,93 +30,124 @@
 
 <body>
 
-    <!-- STATUS BAR -->
+    <!-- MAIN CONTENT -->
+    <main class="content dashboard-content">
 
+        <!-- Header Section -->
+        <div class="dashboard-header-section">
+            <div class="current-date" id="current-date">DATA LOADING...</div>
+            <h1 class="dashboard-title">DASHBOARD</h1>
+        </div>
 
+        <!-- Weekly Workouts Section -->
+        <div class="section-container">
+            <h2 class="section-title">Weekly Workouts</h2>
 
-    <!-- HEADER -->
-    <!-- HEADER -->
-    <div class="header" style="justify-content: center;">
-        <div class="header-title">Workout</div>
-    </div>
+            <div class="stats-circles">
+                <!-- Muscles -->
+                <div class="stat-circle-wrapper small">
+                    <div class="stat-circle blue-border">
+                        <span class="stat-value">9</span>
+                    </div>
+                    <span class="stat-label">Muscles</span>
+                </div>
 
-    <!-- KALENDER -->
-    <div class="calendar-container">
-        <div class="calendar-strip" id="calendar"></div>
-    </div>
+                <!-- Sets (Center, Large) -->
+                <div class="stat-circle-wrapper large">
+                    <div class="stat-circle orange-border">
+                        <span class="stat-value">2</span>
+                    </div>
+                    <span class="stat-label">Sets</span>
+                </div>
 
-    <!-- WORKOUT CONTENT -->
-    <main class="content">
-        <section class="section">
-            <div class="section-header">
-                <h2>Active Program</h2>
+                <!-- Exercises -->
+                <div class="stat-circle-wrapper small">
+                    <div class="stat-circle teal-border">
+                        <span class="stat-value">7</span>
+                    </div>
+                    <span class="stat-label">Exercises</span>
+                </div>
             </div>
-            <div class="placeholder-box">
-                Drag a program block here
-            </div>
-        </section>
 
-        <!-- Workout Library -->
-        <section class="section" id="workout-library-section">
-            <div class="section-header">
-                <h2>Workout Library</h2>
-                <button class="collapse-btn" id="collapse-library-btn" onclick="toggleLibrary()">Collapse</button>
+            <!-- Toggle -->
+            <div class="toggle-container">
+                <div class="toggle-bg">
+                    <div class="toggle-option" onclick="toggleFilter('active-program')">Active Program</div>
+                    <div class="toggle-option active-option" onclick="toggleFilter('all-workouts')">All Workouts</div>
+                </div>
             </div>
-            <div class="workout-cards" id="workout-cards">
-                <!-- Populated via JS -->
-            </div>
-        </section>
+        </div>
 
-        <section class="section">
-            <div class="section-header">
-                <h2>More</h2>
-            </div>
-            <div class="ios-list">
-                <a href="#" class="list-item">
-                    <div class="item-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        <!-- Insights Section -->
+        <div class="section-container insights-section">
+            <h2 class="section-title">Insights & Analytics</h2>
+
+            <div class="insights-scroll">
+                <!-- Workouts Card -->
+                <div class="insight-card">
+                    <div class="card-header">
+                        <div class="card-title">Workouts</div>
+                        <div class="card-subtitle">Last 7 Workouts</div>
+                    </div>
+                    <div class="chart-area bar-chart">
+                        <!-- CSS/SVG Bar Chart Mock -->
+                        <div class="bar" style="height: 20%;"></div>
+                        <div class="bar" style="height: 0%;"></div>
+                        <div class="bar" style="height: 40%;"></div>
+                        <div class="bar" style="height: 10%;"></div>
+                        <div class="bar" style="height: 0%;"></div>
+                        <div class="bar" style="height: 60%;"></div>
+                        <div class="bar active-bar" style="height: 80%;"></div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="footer-value">2 <span class="unit">sets</span></span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
+                            <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </div>
-                    <div class="item-title">Empty Workout</div>
-                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </a>
-                <a href="#" class="list-item">
-                    <div class="item-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+                </div>
+
+                <!-- Weight Trend Card -->
+                <div class="insight-card">
+                    <div class="card-header">
+                        <div class="card-title">Weight Trend</div>
+                        <div class="card-subtitle">Last 7 Days</div>
+                    </div>
+                    <div class="chart-area line-chart">
+                        <!-- SVG Line Chart Mock -->
+                        <svg viewBox="0 0 100 40" preserveAspectRatio="none" width="100%" height="100%">
+                            <!-- Line -->
+                            <path d="M5 20 L20 20 L35 20 L50 20 L65 20 L80 20 L95 20" stroke="#8E8E93" stroke-width="2"
+                                fill="none" stroke-opacity="0.5" />
+                            <!-- Points -->
+                            <circle cx="5" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="20" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="35" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="50" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="65" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="80" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
+                            <circle cx="95" cy="20" r="3" fill="#fff" stroke="#7E57C2" stroke-width="2" />
                         </svg>
                     </div>
-                    <div class="item-title">Workout History</div>
-                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </a>
-                <a href="#" class="list-item">
-                    <div class="item-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                    <div class="card-footer">
+                        <span class="footer-value">80.0 <span class="unit">kg</span></span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </div>
-                    <div>
-                        <div class="item-title">Archive</div>
-                        <div class="item-subtitle">Archive is empty</div>
-                    </div>
-                    <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </a>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <div style="height: 100px;"></div> <!-- Spacer -->
     </main>
 
     <!-- BOTTOM NAV -->
     <nav class="tab-bar">
-        <a href="dashboard.html" class="tab-item" style="opacity: 0.5;">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <a href="dashboard.html" class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="3" y="3" width="7" height="7"></rect>
                 <rect x="14" y="3" width="7" height="7"></rect>
                 <rect x="14" y="14" width="7" height="7"></rect>
@@ -127,8 +156,8 @@
             <span>Dashboard</span>
         </a>
 
-        <a href="index.html" class="tab-item active">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+        <a href="index.html" class="tab-item" style="opacity: 0.5;">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
                     d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
             </svg>
@@ -136,6 +165,7 @@
         </a>
 
         <div class="tab-center">
+            <!-- Reuse existing add sheet logic -->
             <button class="fab" onclick="openAddSheet()" aria-label="Add">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -144,7 +174,7 @@
             </button>
         </div>
 
-        <a href="levels.html" class="tab-item">
+        <a href="levels.html" class="tab-item" style="opacity: 0.5;">
             <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
                 </path>
@@ -155,7 +185,7 @@
             <span>Levels</span>
         </a>
 
-        <a href="settings.html" class="tab-item">
+        <a href="settings.html" class="tab-item" style="opacity: 0.5;">
             <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="1"></circle>
                 <circle cx="19" cy="12" r="1"></circle>
@@ -165,14 +195,12 @@
         </a>
     </nav>
 
-    <!-- SHORTCUTS SHEET MODAL -->
+    <!-- ADD SHEET (Copied from other pages) -->
     <div class="modal-backdrop" id="modalBackdrop" onclick="closeAddSheet()"></div>
-
     <div class="add-sheet" id="addSheet">
         <div class="sheet-handle-bar">
             <div class="sheet-handle"></div>
         </div>
-
         <div class="sheet-header">
             <button class="close-btn" onclick="closeAddSheet()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -181,9 +209,8 @@
                 </svg>
             </button>
             <div class="sheet-title">Add</div>
-            <div style="width: 32px;"></div> <!-- Spacer for centering -->
+            <div style="width: 32px;"></div>
         </div>
-
         <div class="sheet-list">
             <button class="sheet-item" onclick="selectOption('empty-workout')">
                 <div class="sheet-item-icon">
@@ -198,12 +225,11 @@
                     <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
             </button>
-
             <button class="sheet-item" onclick="selectOption('new-program')">
                 <div class="sheet-item-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2.5">
-                        <path d="M4 12h16M16 6l4 6-4 6" /> <!-- Simple Flow icon substitute -->
+                        <path d="M4 12h16M16 6l4 6-4 6" />
                     </svg>
                 </div>
                 <span class="sheet-item-label">New Program</span>
@@ -212,7 +238,6 @@
                     <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
             </button>
-
             <button class="sheet-item" onclick="selectOption('new-workout')">
                 <div class="sheet-item-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -229,14 +254,13 @@
         </div>
     </div>
 
+
     <!-- SCRIPTS -->
     <script src="js/core/utils.js"></script>
-    <script src="js/components/calendar.js"></script>
     <script src="js/components/add-sheet.js"></script>
-    <script src="js/pages/workout.js"></script>
-
-    <!-- Nur Uhrzeit bleibt inline (oder auch auslagern falls gewünscht) -->
+    <script src="js/pages/dashboard.js"></script>
     <script src="js/core/pwa.js"></script>
+
 </body>
 
 </html>
